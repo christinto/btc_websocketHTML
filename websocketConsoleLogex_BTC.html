@@ -6,6 +6,8 @@ var btcs = new WebSocket('wss://ws.blockchain.info/inv');
 //https://blockchain.info/api/api_websocket
 //Can install or reference jquery
 //paste into stringify, what we want to subscribe to on the websocket api website..
+// on open is a command, on opening connection, this is what we want you to do..
+//when we send a request we want it as JSON...
 btcs.onopen = function() {
     btcs.send(JSON.stringify({"op":"unconfirmed_sub"}
     ));
@@ -13,7 +15,7 @@ btcs.onopen = function() {
 btcs.onmessage= function(onmsg) {
     var response = JSON.parse(onmsg.data);
     //console.log(response); not specific, so specify what info u want
-    //let's see amoint sent to receiving address
+    //let's see amount sent to receiving address
     // could do a loop with out at [i]
     //we want to convert amount from satoshis to bitcoin
     var amount = response.x.out[0].value;
