@@ -7,7 +7,8 @@ var btcs = new WebSocket('wss://ws.blockchain.info/inv');
 //Can install or reference jquery
 //paste into stringify, what we want to subscribe to on the websocket api website..
 // on open is a command, on opening connection, this is what we want you to do..
-//when we send a request we want it as JSON...
+// .data appended to onmsg is also a command part of the api
+//when we send a request we want it as JSON... we gave function a name, onmsg
 btcs.onopen = function() {
     btcs.send(JSON.stringify({"op":"unconfirmed_sub"}
     ));
