@@ -13,7 +13,7 @@ btcs.onmessage= function(onmsg) {
     var response = JSON.parse(onmsg.data);
     //console.log(response); not specific, so specify what info u want
     //let's see amoint sent to receiving address
-    // could do a loo[p with out at [i]
+    // could do a loop with out at [i]
     //we want to convert amount from satoshis to bitcoin
     var amount = response.x.out[0].value;
     var conAmount = amount / 1000000;
